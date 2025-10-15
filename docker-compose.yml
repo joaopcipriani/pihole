@@ -3,12 +3,13 @@ version: "3.9"
 services:
   pihole:
     image: pihole/pihole:latest
+    network_mode: host
     container_name: pihole
     restart: unless-stopped
 
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "20053:53/tcp"
+      - "20053:53/udp"
       - "30080:80/tcp"
 
     environment:
